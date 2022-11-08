@@ -1,0 +1,7 @@
+apiVersion: free5gc.nephio.org/v1alpha1
+kind: ImageConfig
+metadata:
+  name: image-config
+spec:
+  imagePaths:
+    upf: towards5gs/free5gc-upf:v3.1.1
