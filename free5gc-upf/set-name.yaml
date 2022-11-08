@@ -1,0 +1,15 @@
+apiVersion: fn.kpt.dev/v1alpha1
+kind: ApplyReplacements
+metadata:
+  name: replacements-fn-config
+replacements:
+- source:
+    kind: ConfigMap
+    name: kptfile.kpt.dev
+    fieldPath: data.name
+  targets:
+  - select:
+      group: nf.nephio.org
+      kind: UPFDeployment
+    fieldPaths:
+    - metadata.name
