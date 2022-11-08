@@ -1,7 +1,7 @@
 apiVersion: nf.nephio.org/v1alpha1
 kind: UPFDeployment
 metadata:
-  name: example
+  name: upf-deployment
   annotations:
     nephio.org/config-injection: "True"
 spec:

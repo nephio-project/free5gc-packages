@@ -6,7 +6,3 @@ metadata:
     config.kubernetes.io/local-config: "true"
 info:
   description: free5gc UPF package for creating UPF deployments that will be made by the Nephio free5gc edge operator
-pipeline:
-  mutators:
-    - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
-      configPath: set-name.yaml
