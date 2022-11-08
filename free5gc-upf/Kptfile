@@ -1,0 +1,8 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: free5gc-upf
+  annotations:
+    config.kubernetes.io/local-config: "true"
+info:
+  description: free5gc UPF package for creating UPF deployments that will be made by the Nephio free5gc edge operator
