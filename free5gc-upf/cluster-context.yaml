@@ -6,7 +6,7 @@ metadata:
   name: cluster-context
   annotations:
     config.kubernetes.io/local-config: "True"
-    nephio.org/config-injection: "True"
+    automation.nephio.org/config-injection: "True"
 spec:
   siteCode: example
   cniConfi:

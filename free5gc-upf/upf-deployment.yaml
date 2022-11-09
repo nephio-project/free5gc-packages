@@ -3,5 +3,5 @@ kind: UPFDeployment
 metadata:
   name: upf-deployment
   annotations:
-    nephio.org/config-injection: "True"
+    automation.nephio.org/config-injection: "True"
 spec:
