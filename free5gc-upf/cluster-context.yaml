@@ -7,6 +7,6 @@ metadata:
     automation.nephio.org/config-injection: "True"
 spec:
   siteCode: example
-  cniConfi:
+  cniConfig:
     cniType: macvlan
     masterInterface: ens0
