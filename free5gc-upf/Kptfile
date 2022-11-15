@@ -6,7 +6,7 @@ metadata:
     config.kubernetes.io/local-config: "true"
 info:
   description: free5gc UPF package for creating UPF deployments that will be made by the Nephio free5gc edge operator
-#pipeline:
-#  mutators:
-#    - image: gcr.io/jbelamaric-public/nephio-upf-ipam-fn:latest
-#    - image: gcr.io/jbelamaric-public/nad-inject-fn:latest
+pipeline:
+  mutators:
+    - image: gcr.io/jbelamaric-public/nephio-upf-ipam-fn:latest
+    - image: gcr.io/jbelamaric-public/nad-inject-fn:latest
