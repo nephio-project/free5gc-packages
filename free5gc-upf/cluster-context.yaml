@@ -3,7 +3,7 @@ kind: ClusterContext
 metadata:
   name: cluster-context
   annotations:
-    config.kubernetes.io/local-config: "True"
+    config.kubernetes.io/local-config: "true"
     automation.nephio.org/config-injection: "True"
 spec:
   siteCode: example
