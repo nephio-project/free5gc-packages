@@ -1,5 +1,5 @@
 apiVersion: req.nephio.org/v1alpha1
-kind: DataNetworkName
+kind: DataNetwork
 metadata:
   name: internet
   annotations:
