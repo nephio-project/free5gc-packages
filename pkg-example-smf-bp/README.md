@@ -1,7 +1,7 @@
-# pkg-upf
+# pkg-smf
 
 ## Description
-Example blueprint package for free5gc UPF network function
+Example blueprint package for free5gc SMF network function
 
 The blueprint package is modeled by multiple parties working together including
 NF Vendors, Network Service Designers, NF Deployment Engineers, and Infra Deployment
@@ -17,16 +17,16 @@ deployed to a workload cluster.
 ## Usage
 
 ### Fetch the package
-`kpt pkg get https://github.com/nephio-project/free5gc-packages/pkg-example-upf-bp@main`
+`kpt pkg get https://github.com/nephio-project/free5gc-packages/pkg-example-smf-bp@main`
 Details: https://kpt.dev/reference/cli/pkg/get/
 
 ### View package content
-`kpt pkg tree pkg-example-upf-bp`
+`kpt pkg tree pkg-example-smf-bp`
 Details: https://kpt.dev/reference/cli/pkg/tree/
 
 ### Apply the package
 ```
-kpt live init pkg-example-upf-bp
-kpt live apply pkg-example-upf-bp --reconcile-timeout=2m --output=table
+kpt live init pkg-example-smf-bp
+kpt live apply pkg-example-smf-bp --reconcile-timeout=2m --output=table
 ```
 Details: https://kpt.dev/reference/cli/live/
