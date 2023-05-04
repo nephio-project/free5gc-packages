@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: free5gc-amf
+  labels:
+    app.kubernetes.io/version: "v3.1.1"
+    project: free5gc
+    nf: amf
+  annotations:
+    config.kubernetes.io/local-config: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: free5gc
+      nf: amf
+  template:
+    metadata:
+      annotations:
+        k8s.v1.cni.cncf.io/networks: '[
+            {
+              "name": "n2network-amf",
+              "interface": "n2",
+              "ips": [ "10.100.50.249/29" ],
+              "gateway": [ "10.100.50.254" ]
+            }
+            ]'
+      labels:
+        project: free5gc
+        nf: amf
+    spec:
+      initContainers:
+      - name: wait-nrf
+        image: towards5gs/initcurl:1.0.0
+        env:
+        - name: DEPENDENCIES
+          value: http://nrf-nnrf:8000
+        command: ['sh', '-c', 'set -x; for dependency in $DEPENDENCIES; do while [ $(curl --insecure --connect-timeout 1 -s -o /dev/null -w "%{http_code}" $dependency) -ne 200 ]; do echo waiting for dependencies; sleep 1; done; done;']   
+      
+      containers:
+      - name: amf
+        image: towards5gs/free5gc-amf:v3.1.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: namf
+          containerPort: 80
+        - name: n2
+          containerPort: 38412
+          protocol: SCTP
+        command: ["./amf"]
+        args: ["-c", "../config/amfcfg.yaml"]
+        env:
+          - name: GIN_MODE
+            value: release
+        volumeMounts:
+        - mountPath: /free5gc/config/
+          name: amf-volume
+        resources:
+            limits:
+              cpu: 150m
+              memory: 128Mi
+            requests:
+              cpu: 150m
+              memory: 128Mi
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+      volumes:
+      - name: amf-volume
+        projected:
+          sources:
+          - configMap:
+              name: amf-configmap
