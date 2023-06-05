@@ -8,7 +8,6 @@ spec:
   selector:
     matchLabels:
       fn.kptgen.dev/controller: free5gc-operator-controller-controller
-  strategy: {}
   template:
     metadata:
       labels:
@@ -72,4 +71,3 @@ spec:
             drop:
             - ALL
       serviceAccountName: free5gc-operator-controller-controller
-status: {}
