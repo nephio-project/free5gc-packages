@@ -50,7 +50,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: gcr.io/jbelamaric-public/free5gc-operator-controller:latest
+        image: nephio/free5gc-operator-controller:latest
         livenessProbe:
           httpGet:
             path: /healthz
