@@ -3,7 +3,6 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.2
-  creationTimestamp: null
   name: upfdeployments.nf.nephio.org
 spec:
   group: nf.nephio.org
