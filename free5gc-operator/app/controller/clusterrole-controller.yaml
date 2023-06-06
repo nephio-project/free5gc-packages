@@ -36,31 +36,20 @@ rules:
   - create
   - delete
 - apiGroups:
-  - nf.nephio.org
+  - workload.nephio.org
   resources:
+  - amfdeployments
+  - smfdeployments
   - upfdeployments
   verbs:
   - get
   - list
   - watch
 - apiGroups:
-  - nf.nephio.org
+  - workload.nephio.org
   resources:
   - upfdeployments/status
   verbs:
   - get
   - update
   - patch
-- apiGroups:
-  - free5gc.nephio.org
-  resources:
-  - imageconfigs
-  - imageconfigs/status
-  verbs:
-  - get
-  - list
-  - watch
-  - update
-  - patch
-  - create
-  - delete
