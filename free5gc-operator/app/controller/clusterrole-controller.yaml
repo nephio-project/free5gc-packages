@@ -11,45 +11,159 @@ metadata:
   name: free5gc-operator-controller-controller-controller-role
 rules:
 - apiGroups:
-  - '*'
+  - ""
   resources:
-  - events
   - configmaps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
   verbs:
   - get
   - list
   - watch
-  - update
-  - patch
-  - create
-  - delete
 - apiGroups:
   - apps
   resources:
   - deployments
   verbs:
-  - get
-  - list
-  - watch
-  - update
-  - patch
   - create
   - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
-  - workload.nephio.org
+  - apps
   resources:
-  - amfdeployments
-  - smfdeployments
-  - upfdeployments
+  - deployments/status
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - k8s.cni.cncf.io
+  resources:
+  - network-attachment-definitions
   verbs:
   - get
   - list
   - watch
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - AMFdeployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - AMFdeployments/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - AMFdeployments/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - amfdeployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - amfdeployments/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - amfdeployments/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - smfdeployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - smfdeployments/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - smfdeployments/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - upfdeployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - workload.nephio.org
+  resources:
+  - upfdeployments/finalizers
+  verbs:
+  - update
 - apiGroups:
   - workload.nephio.org
   resources:
   - upfdeployments/status
   verbs:
   - get
-  - update
   - patch
+  - update
