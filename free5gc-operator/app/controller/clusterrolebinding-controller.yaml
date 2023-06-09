@@ -8,11 +8,11 @@ metadata:
     app.kubernetes.io/name: free5gc-operator
     app.kubernetes.io/part-of: free5gc-operator
     app.kubernetes.io/version: tbd
-  name: free5gc-operator-controller-controller-role-binding
+  name: free5gc-operator-controller-role-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: free5gc-operator-controller-controller-role
+  name: free5gc-operator-controller-role
 subjects:
 - kind: ServiceAccount
   name: free5gc-operator-controller

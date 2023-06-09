@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/name: free5gc-operator
     app.kubernetes.io/part-of: free5gc-operator
     app.kubernetes.io/version: tbd
-  name: free5gc-operator-controller-controller-role
+  name: free5gc-operator-controller-role
 rules:
 - apiGroups:
   - ""
