@@ -1,11 +1,12 @@
 apiVersion: req.nephio.org/v1alpha1
 kind: Interface
 metadata:
-  name: n1 # also used as pfcp
+  name: n1 
   annotations:
     config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.AMFDeployment.amf-empty
 spec:
   networkInstance:
     name: vpc-internal
-  cniType: sriov
+  cniType: macvlan
   attachementType: vlan

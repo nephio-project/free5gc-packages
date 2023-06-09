@@ -4,6 +4,6 @@ metadata:
   name: control-plane
   annotations:
     config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.SMFDeployment.smf-empty
 spec:
   maxSessions: 10000
-  #maxConnectedNF(s): 100

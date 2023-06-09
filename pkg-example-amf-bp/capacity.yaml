@@ -4,5 +4,6 @@ metadata:
   name: control-plane
   annotations:
     config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.AMFDeployment.amf-empty
 spec:
   maxSubscribers: 10000

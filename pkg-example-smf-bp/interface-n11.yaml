@@ -4,8 +4,7 @@ metadata:
   name: n11
   annotations:
     config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.SMFDeployment.smf-empty
 spec:
   networkInstance:
-    name: vpc-internal
-  cniType: ipvlan
-  attachementType: vlan
+    name: default

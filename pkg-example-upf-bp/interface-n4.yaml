@@ -4,8 +4,10 @@ metadata:
   name: n4
   annotations:
     config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.UPFDeployment.upf-empty
 spec:
   networkInstance:
     name: vpc-internal
-  cniType: sriov
-  attachementType: vlan
+  cniType: macvlan
+  attachmentType: vlan
+
