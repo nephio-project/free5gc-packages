@@ -1,13 +1,7 @@
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  labels:
-    app.kubernetes.io/component: tbd
-    app.kubernetes.io/instance: tbd
-    app.kubernetes.io/managed-by: kpt
-    app.kubernetes.io/name: free5gc-operator
-    app.kubernetes.io/part-of: free5gc-operator
-    app.kubernetes.io/version: tbd
   name: free5gc-operator-controller-role
 rules:
 - apiGroups:
@@ -22,6 +16,26 @@ rules:
   - patch
   - update
   - watch
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - services
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
 - apiGroups:
   - ""
   resources:
@@ -49,13 +63,6 @@ rules:
   verbs:
   - get
 - apiGroups:
-  - ""
-  resources:
-  - events
-  verbs:
-  - create
-  - patch
-- apiGroups:
   - k8s.cni.cncf.io
   resources:
   - network-attachment-definitions
@@ -63,32 +70,6 @@ rules:
   - get
   - list
   - watch
-- apiGroups:
-  - workload.nephio.org
-  resources:
-  - AMFdeployments
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - workload.nephio.org
-  resources:
-  - AMFdeployments/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - workload.nephio.org
-  resources:
-  - AMFdeployments/status
-  verbs:
-  - get
-  - patch
-  - update
 - apiGroups:
   - workload.nephio.org
   resources:
@@ -101,12 +82,6 @@ rules:
   - patch
   - update
   - watch
-- apiGroups:
-  - workload.nephio.org
-  resources:
-  - amfdeployments/finalizers
-  verbs:
-  - update
 - apiGroups:
   - workload.nephio.org
   resources:
@@ -130,12 +105,6 @@ rules:
 - apiGroups:
   - workload.nephio.org
   resources:
-  - smfdeployments/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - workload.nephio.org
-  resources:
   - smfdeployments/status
   verbs:
   - get
@@ -153,12 +122,6 @@ rules:
   - patch
   - update
   - watch
-- apiGroups:
-  - workload.nephio.org
-  resources:
-  - upfdeployments/finalizers
-  verbs:
-  - update
 - apiGroups:
   - workload.nephio.org
   resources:
