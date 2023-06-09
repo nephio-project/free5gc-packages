@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: free5gc-operator-controller-controller
+  name: free5gc-operator-controller
   namespace: free5gc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      fn.kptgen.dev/controller: free5gc-operator-controller-controller
+      fn.kptgen.dev/controller: free5gc-operator-controller
   template:
     metadata:
       labels:
         app.kubernetes.io/component: tbd
         app.kubernetes.io/instance: tbd
         app.kubernetes.io/managed-by: kpt
-        app.kubernetes.io/name: free5gc-operator-controller
-        app.kubernetes.io/part-of: free5gc-operator-controller
+        app.kubernetes.io/name: free5gc-operator
+        app.kubernetes.io/part-of: free5gc-operator
         app.kubernetes.io/version: tbd
-        fn.kptgen.dev/controller: free5gc-operator-controller-controller
-      name: free5gc-operator-controller-controller
+        fn.kptgen.dev/controller: free5gc-operator-controller
+      name: free5gc-operator-controller
     spec:
       containers:
       - args:
@@ -76,4 +76,4 @@ spec:
           capabilities:
             drop:
             - ALL
-      serviceAccountName: free5gc-operator-controller-controller
+      serviceAccountName: free5gc-operator-controller
