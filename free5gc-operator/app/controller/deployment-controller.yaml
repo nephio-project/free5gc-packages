@@ -76,4 +76,4 @@ spec:
           capabilities:
             drop:
             - ALL
-      serviceAccountName: free5gc-operator-controller
+      serviceAccountName: free5gc-operator
