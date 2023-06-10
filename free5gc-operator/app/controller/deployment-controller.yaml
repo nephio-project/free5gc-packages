@@ -50,7 +50,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: nephio/free5gc-operator-controller:latest
+        image: nephio/free5gc-operator:latest
         livenessProbe:
           httpGet:
             path: /healthz
@@ -76,4 +76,4 @@ spec:
           capabilities:
             drop:
             - ALL
-      serviceAccountName: free5gc-operator-controller
+      serviceAccountName: free5gc-operator
