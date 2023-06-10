@@ -2,18 +2,14 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
-    app.kubernetes.io/component: tbd
-    app.kubernetes.io/instance: tbd
-    app.kubernetes.io/managed-by: kpt
     app.kubernetes.io/name: free5gc-operator
     app.kubernetes.io/part-of: free5gc-operator
-    app.kubernetes.io/version: tbd
-  name: free5gc-operator-controller-controller-role-binding
+  name: free5gc-operator-role-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: free5gc-operator-controller-controller-role
+  name: free5gc-operator-role
 subjects:
 - kind: ServiceAccount
-  name: free5gc-operator-controller
+  name: free5gc-operator
   namespace: free5gc
