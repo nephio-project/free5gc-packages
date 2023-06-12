@@ -1,3 +1,4 @@
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: smf-configmap
@@ -8,13 +9,11 @@ data:
     info:
       version: 1.0.2
       description: SMF initial local configuration
-
     configuration:
       serviceNameList:
         - nsmf-pdusession
         - nsmf-event-exposure
         - nsmf-oam
-
       sbi:
         scheme: http
         registerIPv4: smf-nsmf # IP used to register to NRF
@@ -23,7 +22,6 @@ data:
         tls:
           key: config/TLS/smf.key
           pem: config/TLS/smf.pem
-
       nrfUri: http://nrf-nnrf:8000
       pfcp:
         addr: 10.100.50.244
@@ -47,7 +45,7 @@ data:
             type: AN # the type of the node (AN or UPF)
           UPF:  # the name of the node
             type: UPF # the type of the node (AN or UPF)
-#            nodeID: 10.100.50.241 # the IP/FQDN of N4 interface on this UPF (PFCP)
+              #nodeID: 10.100.50.241 # the IP/FQDN of N4 interface on this UPF (PFCP)
             sNssaiUpfInfos: # S-NSSAI information list for this UPF
                   - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
                       sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -55,5 +53,5 @@ data:
                     dnnUpfInfoList: # DNN information list for this S-NSSAI
                       - dnn: internet
                         pools:
-#                          - cidr: 10.1.0.0/17
+                          #- cidr: 10.1.0.0/17
                   - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
