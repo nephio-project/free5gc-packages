@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Namespace
+
+metadata:
+  name: free5gc
+  labels:
+    app.kubernetes.io/name: namespace
+    app.kubernetes.io/instance: free5gc
+    app.kubernetes.io/component: operator
+    app.kubernetes.io/created-by: nephio
+    app.kubernetes.io/part-of: free5gc-operator
