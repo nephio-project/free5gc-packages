@@ -1,33 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
-  name: free5gc-operator-controller
   namespace: free5gc
+  name: free5gc-operator
+  labels:
+    app.kubernetes.io/name: deployment
+    app.kubernetes.io/instance: free5gc-operator
+    app.kubernetes.io/component: operator
+    app.kubernetes.io/created-by: nephio
+    app.kubernetes.io/part-of: free5gc-operator
+
 spec:
   replicas: 1
   selector:
     matchLabels:
-      fn.kptgen.dev/controller: free5gc-operator-controller
+      fn.kptgen.dev/controller: free5gc-operator
   template:
     metadata:
+      name: free5gc-operator
       labels:
-        app.kubernetes.io/component: tbd
-        app.kubernetes.io/instance: tbd
-        app.kubernetes.io/managed-by: kpt
-        app.kubernetes.io/name: free5gc-operator
+        app.kubernetes.io/name: deployment
+        app.kubernetes.io/instance: free5gc-operator
+        app.kubernetes.io/component: operator
+        app.kubernetes.io/created-by: nephio
         app.kubernetes.io/part-of: free5gc-operator
-        app.kubernetes.io/version: tbd
-        fn.kptgen.dev/controller: free5gc-operator-controller
-      name: free5gc-operator-controller
     spec:
+      serviceAccountName: free5gc-operator
       containers:
-      - args:
+      - name: kube-rbac-proxy
+        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
+        args:
         - --secure-listen-address=0.0.0.0:8443
         - --upstream=http://127.0.0.1:8080/
         - --logtostderr=true
         - --v=10
-        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
-        name: kube-rbac-proxy
         ports:
         - containerPort: 8443
           name: https
@@ -38,26 +45,26 @@ spec:
           requests:
             cpu: 5m
             memory: 64Mi
-      - args:
+      - name: operator
+        image: docker.io/nephio/free5gc-operator:latest
+        command:
+        - /free5gc-operator
+        args:
         - --health-probe-bind-address=:8081
         - --metrics-bind-address=127.0.0.1:8080
         - --leader-elect
-        command:
-        - /manager
         env:
         - name: POD_NAMESPACE
           valueFrom:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: nephio/free5gc-operator:latest
         livenessProbe:
           httpGet:
             path: /healthz
             port: 8081
           initialDelaySeconds: 15
           periodSeconds: 20
-        name: controller
         readinessProbe:
           httpGet:
             path: /readyz
@@ -76,4 +83,3 @@ spec:
           capabilities:
             drop:
             - ALL
-      serviceAccountName: free5gc-operator

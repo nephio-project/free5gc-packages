@@ -1,15 +1,16 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
+
 metadata:
-  labels:
-    app.kubernetes.io/component: tbd
-    app.kubernetes.io/instance: tbd
-    app.kubernetes.io/managed-by: kpt
-    app.kubernetes.io/name: free5gc-operator
-    app.kubernetes.io/part-of: free5gc-operator
-    app.kubernetes.io/version: tbd
-  name: free5gc-operator-leader-election-role-binding
   namespace: free5gc
+  name: free5gc-operator-leader-election-role-binding
+  labels:
+    app.kubernetes.io/name: rolebinding
+    app.kubernetes.io/instance: free5gc-operator-leader-election-role-binding
+    app.kubernetes.io/component: operator
+    app.kubernetes.io/created-by: nephio
+    app.kubernetes.io/part-of: free5gc-operator
+
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
