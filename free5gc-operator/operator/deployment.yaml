@@ -1,30 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   namespace: free5gc
   name: free5gc-operator
-  labels:
-    app.kubernetes.io/name: deployment
-    app.kubernetes.io/instance: free5gc-operator
-    app.kubernetes.io/component: operator
-    app.kubernetes.io/created-by: nephio
-    app.kubernetes.io/part-of: free5gc-operator
-
 spec:
   replicas: 1
   selector:
     matchLabels:
-      fn.kptgen.dev/controller: free5gc-operator
+      app.kubernetes.io/name: free5gc-operator
+      app.kubernetes.io/component: controller
   template:
     metadata:
       name: free5gc-operator
       labels:
-        app.kubernetes.io/name: deployment
-        app.kubernetes.io/instance: free5gc-operator
-        app.kubernetes.io/component: operator
-        app.kubernetes.io/created-by: nephio
-        app.kubernetes.io/part-of: free5gc-operator
+        app.kubernetes.io/name: free5gc-operator
+        app.kubernetes.io/component: controller
     spec:
       serviceAccountName: free5gc-operator
       containers:

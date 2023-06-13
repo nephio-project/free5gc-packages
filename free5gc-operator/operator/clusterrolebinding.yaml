@@ -3,13 +3,6 @@ kind: ClusterRoleBinding
 
 metadata:
   name: free5gc-operator-role-binding
-  labels:
-    app.kubernetes.io/name: clusterrolebinding
-    app.kubernetes.io/instance: free5gc-operator-role-binding
-    app.kubernetes.io/component: operator
-    app.kubernetes.io/created-by: nephio
-    app.kubernetes.io/part-of: free5gc-operator
-
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

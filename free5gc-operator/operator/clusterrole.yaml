@@ -3,13 +3,6 @@ kind: ClusterRole
 
 metadata:
   name: free5gc-operator-role
-  labels:
-    app.kubernetes.io/name: clusterrole
-    app.kubernetes.io/instance: free5gc-operator-role
-    app.kubernetes.io/component: operator
-    app.kubernetes.io/created-by: nephio
-    app.kubernetes.io/part-of: free5gc-operator
-
 rules:
 - apiGroups:
   - ""
