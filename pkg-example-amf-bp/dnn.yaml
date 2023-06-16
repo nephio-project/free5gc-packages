@@ -1,6 +1,6 @@
 apiVersion: req.nephio.org/v1alpha1
 kind: DataNetwork
-metadata: 
+metadata:
   name: internet
   annotations:
     config.kubernetes.io/local-config: "true"

@@ -1,6 +1,6 @@
 apiVersion: req.nephio.org/v1alpha1
 kind: Interface
-metadata: 
+metadata:
   name: sbi
   annotations:
     config.kubernetes.io/local-config: "true"

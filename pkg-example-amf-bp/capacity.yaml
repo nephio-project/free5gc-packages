@@ -1,6 +1,6 @@
 apiVersion: req.nephio.org/v1alpha1
 kind: Capacity
-metadata: 
+metadata:
   name: control-plane
   annotations:
     config.kubernetes.io/local-config: "true"
