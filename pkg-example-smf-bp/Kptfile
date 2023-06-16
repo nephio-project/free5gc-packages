@@ -13,7 +13,7 @@ pipeline:
     - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
       configPath: apply-replacements-namespace.yaml
     - image: gcr.io/kpt-fn/set-namespace:v0.4.1
-      configPath: package-context.yaml
+      configPath: cm-namespace.yaml
     - image: docker.io/nephio/smf-deploy-fn:latest
     - image: docker.io/nephio/interface-fn:latest
     - image: docker.io/nephio/dnn-fn:latest
