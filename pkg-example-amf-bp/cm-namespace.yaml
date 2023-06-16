@@ -5,4 +5,4 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 data:
-  name: free5gc-cp
+  namespace: free5gc-cp
