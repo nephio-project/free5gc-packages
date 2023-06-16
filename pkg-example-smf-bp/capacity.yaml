@@ -5,5 +5,6 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
     specializer.nephio.org/owner: workload.nephio.org/v1alpha1.SMFDeployment.smf-example
+    specializer.nephio.org/namespace: example
 spec:
   maxSessions: 10000
