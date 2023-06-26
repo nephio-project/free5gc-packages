@@ -1,14 +1,13 @@
 apiVersion: req.nephio.org/v1alpha1
-kind: Interface
+kind: Dependency
 metadata:
-  name: n2
+  name: upf
   annotations:
-    nephio.org/network-name: n2
     config.kubernetes.io/local-config: "true"
     specializer.nephio.org/owner: workload.nephio.org/v1alpha1.AMFDeployment.amf-example
     specializer.nephio.org/namespace: example
 spec:
-  networkInstance:
-    name: vpc-ran
-  cniType: macvlan
-  attachmentType: vlan
+  packageName: free5gc-upf
+  injectors:
+  - apiVersion: workload.nephio.org/v1alpha1
+    kind: UPFDeployment

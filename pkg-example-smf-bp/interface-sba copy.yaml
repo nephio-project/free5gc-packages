@@ -1,14 +1,11 @@
 apiVersion: req.nephio.org/v1alpha1
 kind: Interface
 metadata:
-  name: n2
+  name: sbi
   annotations:
-    nephio.org/network-name: n2
     config.kubernetes.io/local-config: "true"
-    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.AMFDeployment.amf-example
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.SMFDeployment.smf-example
     specializer.nephio.org/namespace: example
 spec:
   networkInstance:
-    name: vpc-ran
-  cniType: macvlan
-  attachmentType: vlan
+    name: default
