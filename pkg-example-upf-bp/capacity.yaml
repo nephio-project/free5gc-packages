@@ -7,5 +7,5 @@ metadata:
     specializer.nephio.org/owner: workload.nephio.org/v1alpha1.UPFDeployment.upf-example
     specializer.nephio.org/namespace: example
 spec:
-  maxUplinkThroughput: 10G
-  maxDownlinkThroughput: 10G
+  maxUplinkThroughput: 5G
+  maxDownlinkThroughput: 5G
