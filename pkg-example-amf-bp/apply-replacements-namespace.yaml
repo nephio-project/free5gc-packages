@@ -22,3 +22,7 @@ replacements:
       kind: DataNetwork
     fieldPaths:
     - metadata.annotations.[specializer.nephio.org/namespace]
+  - select:
+      kind: Dependency
+    fieldPaths:
+    - metadata.annotations.[specializer.nephio.org/namespace]
