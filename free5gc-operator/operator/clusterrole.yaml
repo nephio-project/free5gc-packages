@@ -130,3 +130,11 @@ rules:
   - get
   - patch
   - update
+- apiGroups:
+  - ref.nephio.org
+  resources:
+  - configs
+  verbs:
+  - get
+  - list
+  - watch
