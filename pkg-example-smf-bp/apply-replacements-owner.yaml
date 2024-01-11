@@ -11,7 +11,7 @@ replacements:
     fieldPath: spec.clusterName
   targets:
   - select:
-      kind: SMFDeployment
+      kind: NFDeployment
     fieldPaths:
     - metadata.name
     options:
