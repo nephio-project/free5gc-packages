@@ -11,7 +11,7 @@ replacements:
     fieldPath: spec.clusterName
   targets:
   - select:
-      kind: UPFDeployment
+      kind: NFDeployment
     fieldPaths:
     - metadata.name
     options:
