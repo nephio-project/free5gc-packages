@@ -5,8 +5,4 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: nginx application configured .
-pipeline:
-  mutators:
-  - image: gcr.io/kpt-fn/set-namespace:v0.4.1
-    configPath: package-context.yaml
+  description: nginx application configured.
